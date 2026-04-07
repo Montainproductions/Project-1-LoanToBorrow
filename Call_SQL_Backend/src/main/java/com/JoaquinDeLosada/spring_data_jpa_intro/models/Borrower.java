@@ -71,13 +71,16 @@ public class Borrower {
     @Column(name = "incomeYearly")
     private float yearlyIncome;
     
+    @Column(name = "paymentsMissed")
+    private int paymentsMissed;
+
     public Borrower() {
 
     }
 
     public Borrower(int id, String borrowerFirstName, String lastName, int employmentType, 
         int creditScore, String email, String mainPhone, String address, int zipCode, int state, 
-        int ssnFourDigits, float monthlyIncome, float yearlyIncome) {
+        int ssnFourDigits, float monthlyIncome, float yearlyIncome, int paymentsMissed) {
         this.id = id;
         this.borrowerFirstName = borrowerFirstName;
         this.borrowerLastName = lastName;
@@ -91,6 +94,7 @@ public class Borrower {
         this.ssnFourDigits = ssnFourDigits;
         this.monthlyIncome = monthlyIncome;
         this.yearlyIncome = yearlyIncome;
+        this.paymentsMissed = paymentsMissed;
     }
 
     public int getId() {
@@ -195,5 +199,13 @@ public class Borrower {
 
     public void setYearlyIncome(float yearlyIncome){
         this.yearlyIncome = yearlyIncome;
+    }
+
+    public int getPaymentsMissed(){
+        return paymentsMissed;
+    }
+
+    public void setpaymentsMissed(int paymentsMissed){
+        this.paymentsMissed = paymentsMissed;
     }
 }

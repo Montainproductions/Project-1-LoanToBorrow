@@ -76,7 +76,7 @@ public interface BorrowerRepository extends JpaRepository<Borrower, Integer> {
     
     @Modifying
     @Transactional
-    @Query("update Loan u set u.yearlyIncome = :yearlyIncome where id = :id")
+    @Query("update Borrower u set u.yearlyIncome = :yearlyIncome where id = :id")
     public String updateYearlyIncome(
         @Param("id") int id, @Param("yearlyIncome") float yearlyIncome);
 }

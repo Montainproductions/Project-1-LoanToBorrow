@@ -27,7 +27,7 @@ create table Borrower (
 	employmentType INT,
 	creditScore INT,
 	email TEXT,
-	mainPhone INT,
+	mainPhone TEXT,
 	borrowerAddress TEXT,
 	zipCode INT,
 	usState INT,

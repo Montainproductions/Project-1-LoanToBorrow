@@ -66,12 +66,17 @@ public class LoanService {
 
     public float AmountMonthlyPayment(int id){
         Loan loanToCalculate = getLoanById(id);
-        //float current
-        float payment = loanToCalculate.getloanAmountRemaining()*((loanToCalculate.getCurrentInterestRate() * InterestpaymentCalculation(loanToCalculate.getCurrentInterestRate())));
+        float monthsLeft = loanToCalculate.getLengthOfLoanMonths() - loanToCalculate.getLoanCurrentMonth();
+        float payment = 
+            loanToCalculate.getloanAmountRemaining()*((loanToCalculate.getCurrentInterestRate() * 
+            InterestpaymentCalculation(loanToCalculate.getCurrentInterestRate(), monthsLeft))) /
+            (InterestpaymentCalculation(loanToCalculate.getCurrentInterestRate(), monthsLeft)-1);
         return payment;
     }
 
-    public float InterestpaymentCalculation(float interestRate){
-        return (float)Math.sqrt(1+interestRate);
+    public float InterestpaymentCalculation(float interestRate, float paymentsLeft){
+        return (float)Math.pow(1+interestRate, paymentsLeft);
     }
+
+
 }

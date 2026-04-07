@@ -30,7 +30,7 @@ public class LoanController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Loan>> getAllLoan(
+    public ResponseEntity<List<Loan>> getAllLoans(
         @RequestParam(defaultValue = "0") int page,
         @RequestParam(defaultValue = "4") int size,
         @RequestParam(defaultValue = "id") String sortBy
@@ -58,7 +58,7 @@ public class LoanController {
     }
 
     @PostMapping
-    public ResponseEntity<Loan> createMovie(@Valid @RequestBody Loan newLoan) {
+    public ResponseEntity<Loan> createLoan(@Valid @RequestBody Loan newLoan) {
         Loan loan = loanService.saveLoan(newLoan);
         
         if(loan == null) {

@@ -55,4 +55,26 @@ public class BorrowerService {
         repository.deleteById(id);
         return true;
     }
+
+    public String StateName(int id){
+        String nameOfState = "";
+
+        //repository.GetState
+
+        return nameOfState;
+    }
+
+    public int RiskyBorrower(int id){
+        int riskValue = 0;
+        Borrower currentBorrower = getBorrowerById(id);
+        boolean lessThen500CreditScore = currentBorrower.getCreditScore() <= 500;
+
+        if(lessThen500CreditScore && currentBorrower.getPaymentsMissed() > 0){
+            riskValue = 2;
+        } else if((lessThen500CreditScore && currentBorrower.getPaymentsMissed() == 0) || (!lessThen500CreditScore && currentBorrower.getPaymentsMissed() > 0)){
+            riskValue = 1;
+        }
+
+        return riskValue;
+    }
 }
