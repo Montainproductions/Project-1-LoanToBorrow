@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan and Borrower page</title>
+
+    <meta name="Author" content="Joaquin De Losada">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    </head>
+    <body>
+        <input id="username" type="text" placeholder="Username" />
+            <input id="password" type="password" placeholder="Password" />
+            <button onclick="handleLogin()">Login</button>
+            <div id="error-msg" style="display:none; color:red;">Invalid credentials.</div>
+
+            <div id="dashboard" style="display:none;">
+                <p id="welcome-msg"></p>
+                <div id="admin-panel" style="display:none;">
+                    <h3>Admin Panel</h3>
+                    <p>Only admins see this.</p>
+                </div>
+                <button onclick="handleLogout()">Logout</button>
+            </div>
+        </input>
+    </body>
+</html>
